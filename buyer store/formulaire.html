@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="styles.css">
+<title>Add Product</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="product-form">
+    <form action="addProduct.php" method="post" enctype="multipart/form-data">
+		<h2>Add Product</h2>
+		<p class="hint-text">Enter product details</p>
+        <div class="form-group">
+			<input type="text" class="form-control" name="nom" placeholder="Product Name" required="required">
+        </div>
+        <div class="form-group">
+        	<textarea class="form-control" name="description" placeholder="Product Description" required="required"></textarea>
+        </div>
+		<div class="form-group">
+            <input type="number" class="form-control" name="prix" placeholder="Product Price" required="required">
+        </div>
+		<div class="form-group">
+            <input type="file" class="form-control" name="imageURL" accept="image/*" required="required">
+        </div>
+        <div class="form-group">
+            <select class="form-control" name="condition_produit" required="required">
+                <option value="">Select Condition</option>
+                <option value="new">New</option>
+                <option value="used">Used</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select class="form-control" id="category-filter" name="category" required="required">
+                <option value="graphics-card">Graphics Card</option>
+                <option value="motherboard">Motherboard</option>
+                <option value="ram">RAM</option>
+                <option value="ssd">SSD</option>
+                <option value="case">PC Case</option>
+                <option value="mouse">Mouse</option>
+                <option value="keyboards">Keyboard</option>
+                <option value="monitors">Monitor</option>
+                <option value="headset">Headset</option>
+                <option value="controllers">Controller</option>
+                <option value="gaming chairs">Gaming Chair</option>
+                <option value="power supply">Power Supply</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" name="quantite" placeholder="Quantity" required="required">
+        </div>        
+        <div class="form-group">
+            <input type="text" class="form-control" name="sellerUsername" placeholder="Seller Username" required="required">
+        </div>
+        <div class="form-group">
+            <input type="datetime-local" class="form-control" name="created_at" placeholder="Creation Date" required="required">
+        </div>       
+		<div class="form-group">
+            <button type="submit" name="saveProduct" class="btn btn-success btn-lg btn-block">Add Product</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
