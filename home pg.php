@@ -965,13 +965,13 @@
                   
                   
                 <li class="header-menu-item mbr-fonts-style display-5">
-                    <a href="#" class="text-white">About</a>
+                    <a href="about.php" class="text-white">About</a>
                   </li><li class="header-menu-item mbr-fonts-style display-5">
-                    <a href="#" class="text-white">Terms</a>
+                    <a href="terms.php" class="text-white">Terms</a>
                   </li><li class="header-menu-item mbr-fonts-style display-5">
-                    <a href="#" class="text-white">Privacy</a>
+                    <a href="privacy.php" class="text-white">Privacy</a>
                   </li><li class="header-menu-item mbr-fonts-style display-5">
-                    <a href="#" class="text-white">Contact</a>
+                    <a href="contact.php" class="text-white">Contact</a>
                   </li></ul>
               </div>
 

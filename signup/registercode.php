@@ -32,7 +32,7 @@ if (isset($_POST['save'])) { // Check if form is submitted
 
             if ($user_query_run) {
                 $_SESSION['message'] = "Registered successfully!";
-                header("Location: /final/login/login.html"); // Redirect to login page
+                header("Location: /game-store/login/login.html"); // Redirect to login page
                 exit(0);
             } else {
                 $_SESSION['message'] = "Something went wrong!";

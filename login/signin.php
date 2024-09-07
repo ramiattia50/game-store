@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['logged_in'] = true;
             // Optional: Redirect to a protected page after login
             echo "Login successful! Welcome, " . htmlspecialchars($user['username']) . ".";
-            header("Location: /final/home pg.php"); // Redirect to login page
+            header("Location: /game-store/home pg.php"); // Redirect to login page
             // header("Location: dashboard.php"); // Redirect user to a dashboard or home page
             exit();
         } else {

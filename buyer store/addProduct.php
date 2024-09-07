@@ -63,7 +63,7 @@ if (isset($_POST['saveProduct'])) { // Check if form is submitted
 
     if ($product_query_run) {
         $_SESSION['message'] = "Product added successfully!";
-        header("Location: /final/buyer store/test store.html"); // Redirect to product listing page
+        header("Location: /gamr-store/buyer store/test store.html"); // Redirect to product listing page
         exit(0);
     } else {
         $_SESSION['message'] = "Something went wrong!";
