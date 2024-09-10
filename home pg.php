@@ -391,7 +391,7 @@
                         <h6 class="item-subtitle mbr-fonts-style display-7">150DT</h6>
                         <p class="mbr-text mbr-fonts-style display-7">Unleash its power in your next quest and become a gaming legend!</p>
                         <div class="mbr-section-btn item-footer">
-                            <a href="storem/white/mouse.html" class="btn item-btn btn-primary display-7">Get It</a>
+                            <a href="../game-store/login/login.html" class="btn item-btn btn-primary display-7">Get It</a>
                         </div>
                     </div>
 
@@ -409,7 +409,7 @@
                         <h6 class="item-subtitle mbr-fonts-style display-7">180DT</h6>
                         <p class="mbr-text mbr-fonts-style display-7">Forge your destiny with this epic controllers set fit for a hero!</p>
                         <div class="mbr-section-btn item-footer">
-                            <a href="storem/BLACK/mouse1.html" class="btn item-btn btn-primary display-7">Get It</a>
+                            <a href="../game-store/login/login.html" class="btn item-btn btn-primary display-7">Get It</a>
                         </div>
                     </div>
                 </div>
@@ -426,7 +426,7 @@
                         <h6 class="item-subtitle mbr-fonts-style display-7">125DT</h6>
                         <p class="mbr-text mbr-fonts-style display-7">Master the ancient arts with this mechanical keyboard of wonders!</p>
                         <div class="mbr-section-btn item-footer">
-                            <a href="storek/keyboard.html" class="btn item-btn btn-primary display-7">Get It</a>
+                            <a href="../game-store/login/login.html" class="btn item-btn btn-primary display-7">Get It</a>
                         </div>
                     </div>
                 </div>
@@ -443,7 +443,7 @@
                         <h6 class="item-subtitle mbr-fonts-style display-7">130DT</h6>
                         <p class="mbr-text mbr-fonts-style display-7">Unleash the fury of dragons with this potent elixir of power!</p>
                         <div class="mbr-section-btn item-footer">
-                            <a href="storem/controller/controller.html" class="btn item-btn btn-primary display-7">Get It</a>
+                            <a href="../game-store/login/login.html" class="btn item-btn btn-primary display-7">Get It</a>
                         </div>
                     </div>
                 </div>
@@ -460,7 +460,7 @@
                         <h6 class="item-subtitle mbr-fonts-style display-7">70DT</h6>
                         <p class="mbr-text mbr-fonts-style display-7">Dicorate your desk with things personalized items tailored just for you!</p>
                         <div class="mbr-section-btn item-footer">
-                            <a href="storem/design/design.html" class="btn item-btn btn-primary display-7">Get It</a>
+                            <a href="../game-store/login/login.html" class="btn item-btn btn-primary display-7">Get It</a>
                         </div>
                     </div>
                 </div>
@@ -477,7 +477,7 @@
                         <h6 class="item-subtitle mbr-fonts-style display-7">80DT</h6>
                         <p class="mbr-text mbr-fonts-style display-7">Harness the fiery essence of the phone with this legendary box of accessories!</p>
                         <div class="mbr-section-btn item-footer">
-                            <a href="storem/phone/phone box.html" class="btn item-btn btn-primary display-7">Get It</a>
+                            <a href="../game-store/login/login.html" class="btn item-btn btn-primary display-7">Get It</a>
                         </div>
                     </div>
                 </div>

@@ -13,14 +13,26 @@ $result = $con->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <title>Gaming Parts Store</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Improved Cart button styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #1f1f1f;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         .cart-button {
             display: inline-block;
-            background-color: #ff6600;
+            background-color: #ff5500;
             color: white;
             padding: 12px 25px;
             text-decoration: none;
@@ -34,40 +46,85 @@ $result = $con->query($sql);
         }
 
         .cart-button:hover {
-            background-color: #cc5200;
+            background-color: #cc4400;
         }
 
-        .cart-icon {
-            margin-right: 10px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Additional styles for other elements */
-        .filter-section {
+        .container h1 {
+            color: #ff5500;
+            text-align: center;
+            font-size: 2.5em;
             margin-bottom: 20px;
+        }
+
+        .filter-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 20px;
+            background: #333;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .filter-section select, .search-bar {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .filter-section select {
+            background: #444;
+            color: #fff;
+            border: 1px solid #555;
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 350px;
+            background: #555;
+            color: #fff;
+            border: 1px solid #666;
         }
 
         .product-card {
-            border: 1px solid #ddd;
+            border: 1px solid #444;
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 8px;
-            background-color: #f9f9f9;
+            background-color: #2e2e2e;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .product-card img {
             max-width: 100%;
             height: auto;
-            border-radius: 5px;
+            border-radius: 8px;
         }
 
         .product-info {
             padding: 10px 0;
+        }
+
+        .product-info h2 {
+            color: #ff5500;
+            font-size: 1.5em;
+            margin: 0;
+        }
+
+        .product-info p {
+            margin: 5px 0;
+        }
+
+        .price {
+            font-size: 1.2em;
+            font-weight: bold;
         }
 
         .buy-now {
@@ -86,49 +143,70 @@ $result = $con->query($sql);
             background-color: #218838;
         }
 
+        #no-products-message {
+            color: #ff5500;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #f0f0f0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Page Header -->
+        <h1>Gaming Parts Store</h1>
+
         <!-- Updated Cart Button -->
         <a class="cart-button" href="./cart.php">
             <i style="font-size:24px" class="fa">&#xf07a;</i> Cart
         </a>
 
-        <!-- Product Filters -->
+        <!-- Filters and Search Bar -->
         <div class="filter-section">
-            <label for="category-filter">Filter by Category:</label>
-            <select id="category-filter" onchange="filterProducts()">
-                <option value="all">All</option>
-                <option value="graphics-card">Graphics Card</option>
-                <option value="motherboard">Motherboard</option>
-                <option value="ram">RAM</option>
-                <option value="ssd">SSD</option>
-                <option value="case">PC Case</option>
-                <option value="mouse">Mouse</option>
-                <option value="keyboards">Keyboard</option>
-                <option value="monitors">Monitor</option>
-                <option value="headset">Headset</option>
-                <option value="controllers">Controller</option>
-                <option value="gaming chairs">Gaming Chair</option>
-                <option value="power supply">Power Supply</option>
-            </select>
-        </div>
-
-        <div class="filter-section">
-            <label for="condition-filter">Filter by Condition:</label>
-            <select id="condition-filter" onchange="filterProductsByCondition()">
-                <option value="all">All</option>
-                <option value="used">Used</option>
-                <option value="new">New</option>
-            </select>
+            <div>
+                <label for="category-filter">Category:</label>
+                <select id="category-filter" onchange="searchProducts()">
+                    <option value="all">All</option>
+                    <option value="graphics-card">Graphics Card</option>
+                    <option value="motherboard">Motherboard</option>
+                    <option value="ram">RAM</option>
+                    <option value="ssd">SSD</option>
+                    <option value="case">PC Case</option>
+                    <option value="mouse">Mouse</option>
+                    <option value="keyboards">Keyboard</option>
+                    <option value="monitors">Monitor</option>
+                    <option value="headset">Headset</option>
+                    <option value="controllers">Controller</option>
+                    <option value="gaming chairs">Gaming Chair</option>
+                    <option value="power supply">Power Supply</option>
+                </select>
+            </div>
+            <div>
+                <label for="condition-filter">Condition:</label>
+                <select id="condition-filter" onchange="searchProducts()">
+                    <option value="all">All</option>
+                    <option value="used">Used</option>
+                    <option value="new">New</option>
+                </select>
+            </div>
+            <input type="text" id="search-bar" class="search-bar" placeholder="Search for products..." oninput="searchProducts()">
         </div>
 
         <div id="product-list" class="product-list">
-            <span id="no-products-message" style="display:none;color:red;">No products found in this category.</span>
+            <span id="no-products-message" style="display:none;">No products found matching your criteria.</span>
             <?php if ($result->num_rows > 0): ?>
                 <?php while($row = $result->fetch_assoc()): ?>
-                    <div class="product-card" data-category="<?php echo htmlspecialchars($row['category']); ?>" value="<?php echo htmlspecialchars($row['condition_produit']); ?>">
+                    <div class="product-card" data-category="<?php echo htmlspecialchars($row['category']); ?>" data-condition="<?php echo htmlspecialchars($row['condition_produit']); ?>">
                         <img src="<?php echo htmlspecialchars('../buyer store/images/' . $row['imageURL']); ?>" alt="<?php echo htmlspecialchars($row['imageURL']); ?>">
                         <div class="product-info">
                             <h2><?php echo htmlspecialchars($row['nom']); ?></h2>
@@ -151,36 +229,24 @@ $result = $con->query($sql);
     </footer>
 
     <script>
-        function filterProducts() {
-            var filterValue = document.getElementById('category-filter').value;
+        function searchProducts() {
+            var searchValue = document.getElementById('search-bar').value.toLowerCase();
+            var categoryValue = document.getElementById('category-filter').value;
+            var conditionValue = document.getElementById('condition-filter').value;
             var productCards = document.querySelectorAll('.product-card');
             var noProductsMessage = document.getElementById('no-products-message');
             var hasVisibleProduct = false;
 
             productCards.forEach(function(card) {
-                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                    card.style.display = 'block';
-                    hasVisibleProduct = true; // At least one product is visible
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+                var productName = card.querySelector('.product-info h2').textContent.toLowerCase();
+                var productCategory = card.getAttribute('data-category');
+                var productCondition = card.getAttribute('data-condition');
 
-            if (hasVisibleProduct) {
-                noProductsMessage.style.display = 'none';
-            } else {
-                noProductsMessage.style.display = 'block';
-            }
-        }
+                var matchesSearch = productName.includes(searchValue);
+                var matchesCategory = categoryValue === 'all' || productCategory === categoryValue;
+                var matchesCondition = conditionValue === 'all' || productCondition === conditionValue;
 
-        function filterProductsByCondition(){
-            var filterValue = document.getElementById('condition-filter').value;
-            var productCards = document.querySelectorAll('.product-card');
-            var noProductsMessage = document.getElementById('no-products-message');
-            var hasVisibleProduct = false;
-
-            productCards.forEach(function(card) {
-                if (filterValue === 'all' || card.getAttribute('value') === filterValue) {
+                if (matchesSearch && matchesCategory && matchesCondition) {
                     card.style.display = 'block';
                     hasVisibleProduct = true;
                 } else {
